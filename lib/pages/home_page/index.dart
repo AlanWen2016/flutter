@@ -7,7 +7,7 @@ import 'package:camera/camera.dart';
 import 'package:path/path.dart' show join;
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter_app_1/pages/scanner/index.dart';
-
+import 'package:flutter_app_1/pages/js_bridge/index.dart';
 
 
 /// APP 首页入口
@@ -106,6 +106,20 @@ class HomePageState extends State<HomePage> {
                 MaterialPageRoute(
                   builder: (context) {
                     return QRViewExample();
+                  },
+                ),
+              );
+              //输出`TipRoute`路由返回结果
+            },
+           ),
+            new RaisedButton(
+             child: Text('webView与flutter通信'),
+            onPressed: () async {
+              var result = await Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return JSBridgetDemo();
                   },
                 ),
               );

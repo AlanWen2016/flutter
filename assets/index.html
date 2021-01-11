@@ -2,19 +2,26 @@
 <head>
     <title>My Local HTML File</title>
 </head>
-
-
 <body>
+<h1>这个本地html页面</h1>
 <h1 id="title">Hello World!</h1>
+<button onclick="sendMessageToFlutter()">调用flutter, 传递参数2222222</button>
+<button onclick="takePhotos()">照相</button>
 <script type="text/javascript">
             function fromFlutter(newTitle) {
                 document.getElementById("title").innerHTML = newTitle;
                 sendBack();
              }
 
-
-             function sendBack() {
-                messageHandler.postMessage("Hello from JS");
+             function sendBack(mes) {
+                var message = mes || "Hello from JS, 消息来自js的调用"
+                messageHandler.postMessage(message);
+             }
+             function sendMessageToFlutter () {
+                 sendBack('2222222');
+             }
+             function takePhotos() {
+                takePhoto.postMessage('message1111');
              }
         </script>
 </body>
