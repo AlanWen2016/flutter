@@ -6,8 +6,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 import 'package:camera/camera.dart';
 import 'package:path/path.dart' show join;
 import 'package:path_provider/path_provider.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
-
+import 'package:flutter_app_1/pages/scanner/index.dart';
 
 
 
@@ -102,19 +101,11 @@ class HomePageState extends State<HomePage> {
             new RaisedButton(
              child: Text('扫码'),
             onPressed: () async {
-              WidgetsFlutterBinding.ensureInitialized();
-              final cameras = await availableCameras();
-              final firstCamera = cameras.first;
-
-                // 打开`TipRoute`，并等待返回结果
               var result = await Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return TakePictureScreen(
-                      // 路由参数
-                      camera: firstCamera,
-                    );
+                    return QRViewExample();
                   },
                 ),
               );
