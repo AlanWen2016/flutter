@@ -34,8 +34,11 @@ dependencies:
   flutter_webview_plugin: ^0.3.11
   intl: ^0.16.1
   uni_links: ^0.4.0
-  camera: ^0.6.4+5
+#  camera: ^0.6.4+5
+  camera: ^0.5.2+1
   path_provider: ^1.6.27
+  path: ^1.7.0
+  qr_code_scanner: ^0.2.1
 
 
 dev_dependencies:
