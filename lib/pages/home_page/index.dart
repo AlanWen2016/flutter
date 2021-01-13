@@ -14,6 +14,7 @@ import 'package:flutter_app_1/pages/js_bridge/index.dart';
 ///
 /// 本模块函数，加载状态类组件HomePageState
 class HomePage extends StatefulWidget {
+  const HomePage({Key key}) : super(key: key);
   @override
   createState() => HomePageState();
 }

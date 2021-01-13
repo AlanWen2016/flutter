@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_1/pages/common/web_view_page.dart';
 import 'package:flutter_app_1/pages/home_page/index.dart';
 import 'package:flutter_app_1/pages/user_page/index.dart';
-
+import 'package:flutter_app_1/pages/util/router_struct.dart';
 /// app 协议头
 const String appScheme = "ebcapp";
 
@@ -12,6 +12,13 @@ const Map<String, List<String>> paramsMapping = {
   'homepage' : null,
   'userpage' : ['userId']
 };
+
+const Map<String, RouterStruct> routerMapping = {
+  'homepage': RouterStruct(HomePage(), 0, null),
+  'userpage': RouterStruct(UserPageIndex(), 2, ['userId']),
+  'default': RouterStruct(HomePage(), 0, null)
+};
+
 
 /// 处理APP内的跳转
 class Router {
@@ -113,6 +120,16 @@ class Router {
     };
   }
 
+  /// 根据页面路由，获取页面信息
+  Widget getPageByRouter(String pageName) {
+    Widget pageWidget;
+    if (routerMapping[pageName] != null) {
+      pageWidget = routerMapping[pageName].widget;
+    } else {
+      pageWidget = routerMapping['default'].widget;
+    }
+    return pageWidget;
+  }
 //  /// 设置路由跳转逻辑
 //  MaterialPageRoute generateRoute(String pathAction, Object params) {
 //    Map paramsMap = {};
